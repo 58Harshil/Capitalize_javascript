@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capitalize</title>
+</head>
+    <body class="bg-black">
+    <center>
+        <p class="text-white text-3xl font-bold mt-10">Capitalize Javascript</p>
+    <form class="bg-white mx-16  rounded-3xl py-3 mt-28"> 
+        <label class="text-xl font-bold" for="nameInput">Enter Your Name:</label><br><br>
+        <input class="border-2 border-black rounded-lg" type="text" id="nameInput" name="nameInput"><br><br>
+        <button class="text-xl font-bold bg-red-600 py-1 px-5 rounded-2xl hover:bg-green-600 text-white" type="submit">Submit</button>
+        <p id="output" type="text" class="text-xl text-green-500"></p>
+      </form>
+    </center>
+</body>
+<script>
+  const form = document.querySelector('form');
+  const nameInput = document.getElementById('nameInput');
+  const outputDiv = document.getElementById('output');
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault(); // prevent the form from submitting
+
+    // get the value of the input and capitalize the first letter
+    let modifiedName = nameInput.value.charAt(0).toUpperCase() + nameInput.value.slice(1);
+
+    // update the input value with the modified name
+    nameInput.value = modifiedName;
+
+    // display the modified name on the page
+    outputDiv.textContent = `Hello, ${modifiedName}!`;
+
+    // submit the form
+    form.submit();
+  });
+</script>
+</html>
